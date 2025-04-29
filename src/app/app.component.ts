@@ -36,82 +36,24 @@ export class AppComponent {
   //--------- Opcoes de Menu
   readonly menus: Array<PoMenuItem> = [
     {
-      label: 'Menu Principal',
-      icon: 'bi bi-house',
-      link: '/',
+      label: 'Rastro',
+      icon: 'bi bi-display',
+      link: '/testeapi',
       shortLabel: 'Home',
     },
-    /*  {
-      label: 'Informe Ordem de Serviço',
-      icon: 'bi bi-clipboard-data',
-      link: '/informe',
-      shortLabel: 'Informe',
-    }, */
  
     {
-      label: 'Informe Ordem de Serviço',
-      icon: 'bi bi-clipboard-data',
-      link: '/informe2',
-      shortLabel: 'Informe2',
-    },
-    {
-      label: 'Cálculo Auto Atendimento',
+      label: 'Cálculo Preços/Prazo',
       icon: 'bi bi-calculator',
-      link: '/calculo',
+      link: '/precosprazos',
       shortLabel: 'Cálculo',
     },
     {
-      label: 'Monitor Processos',
-      icon: 'bi bi-display',
+      label: 'Emissao Objeto',
+      icon: 'bi bi-upc-scan',
       link: '/monitor',
       shortLabel: 'Monitor Processos',
     },
-    {
-      label: 'Danfe (FT0518)',
-      icon: 'bi bi-printer',
-      shortLabel: 'FT0518',
-      action: () => this.AbrirProgramaTotvs('ftp/ft0518.w'),
-    },
-    {
-      label: 'Consulta Nota (FT0904)',
-      icon: 'bi bi-file-earmark-text',
-      shortLabel: 'FT0904',
-      action: () => this.AbrirProgramaTotvs('ftp/ft0904.w'),
-    },
-
-    {
-      label: 'Itens x Localiza (ESAA002)',
-      icon: 'bi bi-printer',
-      shortLabel: 'ESAA002',
-      action: () => this.AbrirProgramaTotvs('esp/esaa002.w'),
-    },
-    {
-      label: 'Reimpressão Reparos (ESAA059)',
-      icon: 'bi bi-upc-scan',
-      shortLabel: 'ESAA059',
-      action: () => this.AbrirProgramaTotvs('esp/esaa059.w'),
-    },
-    /* 
-    {
-      label: 'Emprestimos',
-      icon: 'bi bi-upc-scan',
-      shortLabel: 'Emprestimos',
-      action: () => this.AbrirProgramaTotvs('totvs-menu/program-html/htmla41'),
-    },
-    
-   
-    {
-      label: 'Refactory Calculo',
-      icon: 'bi bi-file-earmark-text',
-      link: '/calculo-step',
-      shortLabel: 'Calculo Step',
-    },
-    {
-      label: 'Seletor',
-      icon: 'bi bi-file-earmark-text',
-      link: '/seletor',
-      shortLabel: 'Calculo Step',
-    }, */
   ];
 
   //------ Label de menu principal

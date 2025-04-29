@@ -3,16 +3,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PoModalAction, PoNotificationService, PoTableAction, PoTableColumn, PoLoadingModule, PoFieldModule, PoIconModule, PoButtonModule, PoTableModule, PoDialogService, PoTooltipModule, PoTableLiterals } from '@po-ui/ng-components';
 import { Usuario } from '../../interfaces/usuario';
 import { TotvsService } from '../../services/totvs-service.service';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { NgIf, NgClass } from '@angular/common';
 import { ExcelService } from '../../services/excel-service.service';
+import { NavegaComponent } from "../../navega/navega.component";
+import { Goto } from '../../interfaces/goto';
 
 @Component({
     selector: 'app-monitor-processos',
     templateUrl: './monitor-processos.component.html',
     styleUrls: ['./monitor-processos.component.css'],
     standalone: true,
-    imports: [NgIf, PoLoadingModule, PoFieldModule, FormsModule, PoIconModule, PoButtonModule, PoTableModule, NgClass, PoTooltipModule]
+    imports: [NgIf, PoLoadingModule, PoFieldModule, FormsModule, PoIconModule, PoButtonModule, PoTableModule,  
+      PoTooltipModule, NavegaComponent,FormsModule, 
+      ReactiveFormsModule,
+      PoFieldModule, ]
 })
 export class MonitorProcessosComponent {
 
@@ -22,6 +27,7 @@ private srvNotification = inject(PoNotificationService);
 private router = inject(Router)
 private route = inject(ActivatedRoute)
 private srvDialog = inject(PoDialogService);
+private formBuilder = inject(FormBuilder);
   
 
 
@@ -41,7 +47,25 @@ mostrarLabel:boolean=false
 colunas!:PoTableColumn[]
 lista!:any[]
 labelContador:string[]=[]
-alturaGrid:number=window.innerHeight - 255
+alturaGrid:number=window.innerHeight - 355
+
+
+gotoCampos:Goto={campo1: {label:'Item', mask:'AA.AAA.AAAAA-AA', value:''},
+                 campo2: {label:'Enc', mask:'', value:''}
+
+}                  
+
+
+public form_ = this.formBuilder.group({
+  'nr-process': ['', Validators.required],
+  'qt-volume': ['', Validators.required],
+  'cod-embal': [''],
+  'qt-embal': [''],
+  'peso-liq': [0.001],
+  'peso-bru': [0.001],
+  'modal':[2]
+  
+});
 
 //--- Actions
 readonly acoes: PoTableAction[] = [
@@ -77,12 +101,25 @@ readonly acoes: PoTableAction[] = [
      this.loadTela = false;
   }
 
+  
+  goto(opcao:Goto){
+    console.log(opcao)
+  }
+  acao(opcao:string){
+   
+   if(opcao==='del'){
+    alert("vou eliminar" + this.form_.controls['cod-embal'].value)
+    
+   }
+
+  }
+
 
 ngOnInit(): void {
 
   this.mostrarLabel=false
   this.colunas = this.srvTotvs.obterColunasMonitor()
-  this.srvTotvs.EmitirParametros({ tituloTela: 'HTMLA41 - MONITOR ACOMPANHAMENTO DE PROCESSOS', estabInfo:''});
+  this.srvTotvs.EmitirParametros({ tituloTela: 'htmlesaa057 - CADASTRO DE ENC', estabInfo:''});
 
   let monitor = this.srvTotvs.ObterMonitor()
   if (monitor !== undefined)

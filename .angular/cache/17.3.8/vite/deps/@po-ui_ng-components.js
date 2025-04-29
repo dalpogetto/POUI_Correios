@@ -1,4 +1,11 @@
 import {
+  NavigationCancel,
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterModule
+} from "./chunk-7ZZ6LQUF.js";
+import {
   AnimationBuilder,
   animate,
   animateChild,
@@ -10,6 +17,18 @@ import {
   transition,
   trigger
 } from "./chunk-TCKKGW44.js";
+import {
+  DomSanitizer,
+  Title
+} from "./chunk-4HPRWHYN.js";
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpEventType,
+  HttpHeaders,
+  HttpRequest,
+  HttpResponse
+} from "./chunk-327FQTBH.js";
 import {
   ControlContainer,
   DefaultValueAccessor,
@@ -25,25 +44,6 @@ import {
   ɵNgNoValidate,
   ɵNgSelectMultipleOption
 } from "./chunk-K7N2S225.js";
-import {
-  NavigationCancel,
-  NavigationEnd,
-  Router,
-  RouterLink,
-  RouterModule
-} from "./chunk-7ZZ6LQUF.js";
-import {
-  DomSanitizer,
-  Title
-} from "./chunk-4HPRWHYN.js";
-import {
-  HTTP_INTERCEPTORS,
-  HttpClient,
-  HttpEventType,
-  HttpHeaders,
-  HttpRequest,
-  HttpResponse
-} from "./chunk-327FQTBH.js";
 import {
   AsyncPipe,
   CommonModule,
@@ -31122,7 +31122,6 @@ var PoToasterComponent = class _PoToasterComponent extends PoToasterBaseComponen
   }
   /* Fecha o componente Toaster */
   close() {
-   
     if (this.isAlert()) {
       this.observableOnClose.next(true);
     } else {

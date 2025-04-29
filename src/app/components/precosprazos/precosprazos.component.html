@@ -1,0 +1,28 @@
+<div class="sample-container">
+    <po-loading-overlay *ngIf="loadTela===true" [p-screen-lock]="true"></po-loading-overlay>
+  </div>
+
+<div class="selecao">
+    
+    <div style="display: flex; margin-top: 24px; gap:5px;width: 230px; margin-bottom: 10px;">
+        <label style="color: gray; font-size: 10;">&nbsp;</label>
+        <po-button p-icon="bi bi-check2" (p-click)="onListar()" p-label="Realizar Cálculo"></po-button> 
+    </div>
+   <div>
+    <p style="margin: 10px 10px;">
+        <strong>
+            <p>CEP Origem: 05.347-901 - CEP Destino: 13.406-376</p>
+            <p>Item: ProdutoA <br>Peso: 10gr <br>Altura: 10cm <br>Largura: 10cm <br>Comprimento: 10cm</p> 
+        </strong>
+    </p>
+   </div>
+</div>
+
+<po-table [p-items]="lista" 
+          [p-striped]="true" 
+          [p-height]="alturaGrid"
+          p-container="true"
+          [p-sort]="true"
+          [p-hide-table-search]="true" 
+          [p-hide-columns-manager]="true">
+

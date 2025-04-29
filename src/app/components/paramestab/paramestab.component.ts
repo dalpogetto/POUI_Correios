@@ -162,7 +162,7 @@ export class ParamestabComponent {
     this.loadTela=true;
 
     //--- Titulo Tela
-    this.srvTotvs.EmitirParametros({estabInfo:'', tecInfo:'', processoInfo:'', tituloTela: 'HTMLA41 - PARÂMETROS DA FILIAL', dashboard: false})
+    this.srvTotvs.EmitirParametros({estabInfo:'', tecInfo:'', processoInfo:'', tituloTela: 'htmlesaa057 - PARÂMETROS DA FILIAL', dashboard: false})
 
     //Colunas do grid
     this.colunas = this.srvTotvs.obterColunas()

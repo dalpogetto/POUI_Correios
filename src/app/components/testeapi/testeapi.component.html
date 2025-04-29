@@ -1,0 +1,39 @@
+<div class="sample-container">
+    <po-loading-overlay *ngIf="loadTela===true" [p-screen-lock]="true"></po-loading-overlay>
+  </div>
+
+<div class="selecao">
+    <div style="width: 200px;display: flex;flex-direction: column;">
+        <label style="color: gray; font-size: 10;">Objeto</label>
+        <po-input [(ngModel)]="listaObjetos"></po-input> 
+    </div>
+
+    <div style="display: flex; margin-top: 24px; gap:5px;width: 230px;">
+        <label style="color: gray; font-size: 10;">&nbsp;</label>
+        <po-button p-icon="bi bi-check2" (p-click)="onListar()"></po-button> 
+       
+    </div>
+   
+</div>
+@if(registro!==undefined){
+    <div style="display: flex; padding: 10px;justify-content: center;">
+        <dn-input [text]="registro.objetos[0].codObjeto" label="Cód Objeto"/>
+        <dn-input [text]="registro.objetos[0].contrato" label="Contrato"/>
+        <dn-input [text]="registro.objetos[0].dtPrevista" label="Dt Prevista" [width]="200"/>
+        <dn-input [text]="registro.objetos[0].modalidade" label="Modalidade"/>
+        <po-widget p-title="Tipo Postal" style="margin-left: 20px;">
+            <dn-input [text]="registro.objetos[0].tipoPostal.sigla" label="Sigla"/>
+            <dn-input [text]="registro.objetos[0].tipoPostal.categoria" label="Categoria"/>
+            <dn-input [text]="registro.objetos[0].tipoPostal.descricao" label="Descrição" [width]="300"/>
+        </po-widget>
+    
+    </div>
+}
+
+<po-table [p-items]="lista" 
+          [p-striped]="true" 
+          [p-height]="alturaGrid"
+          p-container="true"
+          [p-sort]="true"
+          [p-hide-table-search]="true" 
+          [p-hide-columns-manager]="true">

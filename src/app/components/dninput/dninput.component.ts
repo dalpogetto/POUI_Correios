@@ -18,7 +18,7 @@ export class DninputComponent {
     
     @Input() label:string=''
      @Input() text:string=''
-    @Input() width:number=300
+    @Input() width:number=130
   
 
 }

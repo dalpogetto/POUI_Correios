@@ -606,13 +606,10 @@ export class TotvsService {
 
   obterColunasMonitor(): Array<PoTableColumn> {
     return [
-      { property: 'situacao', label:' ', type:'cellTemplate', width:'45px'},
-      { property: 'nr-process', label: 'Processo' },
-      { property: 'cod-emitente', label: 'Técnico' },
-      { property: 'nome-abrev', label: 'Nome' },
-      { property: 'num-ped-exec', label: 'Num Ped Exec', type:'cellTemplate' },
-      { property: 'nome-almoxa', label: 'Almox' },
-      { property: 'opcoes', label: 'Ações Disponíveis', type: 'cellTemplate' },
+      { property: 'nr-process', label: 'Estabel' },
+      { property: 'cod-emitente', label: 'Filial' },
+      { property: 'nome-abrev', label: 'Nr ENC' },
+     
     ];
   }
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "htmla41": {
+    "htmlesaa057": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/htmla41",
+            "outputPath": "dist/htmlesaa057",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "htmla41:build:production"
+              "buildTarget": "htmlesaa057:build:production"
             },
             "development": {
-              "buildTarget": "htmla41:build:development"
+              "buildTarget": "htmlesaa057:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "htmla41:build"
+            "buildTarget": "htmlesaa057:build"
           }
         },
         "test": {

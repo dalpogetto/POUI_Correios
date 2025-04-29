@@ -5,16 +5,27 @@
 .selecao{
     display: flex; 
     align-items:center; 
-    gap:10px;
+    gap:5px;
     justify-content: center; 
     justify-items: center;
     border-radius: 3px; 
     border: 1px solid #cccc; 
-    height: 70px; 
     background: #E5E5E5 ;
-    box-shadow: 2px 5px 5px lightgray;
-   
-    margin-bottom: 10px;
+    
+}
+
+.navegacao{
+  margin-top: 20px;
+  display: flex; 
+  align-items:end; 
+  gap:5px;
+  justify-content: center; 
+  justify-items: center;
+  border-radius: 3px; 
+  border: 1px solid #cccc; 
+  background: #E5E5E5 ;
+  padding: 5px 20px;
+  
 }
 .show{
     display:block;
