@@ -9,29 +9,10 @@ import { Totvsheader } from '../interfaces/totvsheader';
   providedIn: 'root'
 })
 
-
-
 export class CorreioService {
 
-  totvs_header:any={
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic ' + btoa("super:prodiebold11"),
-    'CompanyId': 1
-  }
   
-   headersCorreio = new HttpHeaders(this.totvs_header);
-  
-
-  //Dados do usuario
-  
-
-  
-  constructor(private http: HttpClient) { 
-      
-    
-  }
-
-   //---------------------- Variaveis Globais
+  constructor(private http: HttpClient) { }
 
    public Login(params?: any) {
     return this.http
@@ -41,7 +22,6 @@ export class CorreioService {
 
 
   public RastroObjeto(params: string, token:string) {
-  
         return this.http
         .get("https://localhost:7146/Rastro/"+params, {headers: new HttpHeaders({'Authorization': 'Bearer ' + token})})
         .pipe(take(1));
