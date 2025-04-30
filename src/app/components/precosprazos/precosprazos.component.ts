@@ -21,6 +21,7 @@ export class PrecosprazosComponent {
     lista!:any[]
     listaObjetos=''
     novalista!:any[]
+    cToken=''
    
     onListar() {
       this.lista=[]
@@ -36,7 +37,7 @@ export class PrecosprazosComponent {
                               peso: 10
                             }
   ]}
-      this.srvCorreios.CalculoPrecoPrazo(param).subscribe({
+      this.srvCorreios.CalculoPrecoPrazo(param,this.cToken).subscribe({
         next: (response: any) => {
            this.lista=response.calculo;
            console.log(response)

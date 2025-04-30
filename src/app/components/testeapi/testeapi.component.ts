@@ -15,6 +15,13 @@ import { RastroResponse } from '../../models/rastroresponse';
 })
 export class TesteapiComponent {
 
+  /**
+   *
+   */
+  constructor() {
+    this.ObterToken()
+  }
+
   private srvCorreios = inject(CorreioService)
 
   loadTela=false;
@@ -22,11 +29,13 @@ export class TesteapiComponent {
   lista!:any[]
   listaObjetos=''
   registro!: RastroResponse
+  dadosUsuario = {"Email":"servico@dieboldnixdorf.com", "Senha":"prodiebold11"}
+  cToken=''
 
 onListar() {
   this.loadTela=true;
   let param=this.listaObjetos
-  this.srvCorreios.RastroObjeto(param).subscribe({
+  this.srvCorreios.RastroObjeto(param, this.cToken).subscribe({
     next: (response: any) => {
        this.registro = response as RastroResponse
        this.lista=this.registro.objetos[0].eventos
@@ -39,7 +48,14 @@ onListar() {
     }
     
     
-  });
+  })
+}
+
+  ObterToken() {
+    this.srvCorreios.Login(this.dadosUsuario).subscribe({
+        next: (response: any) => {
+         this.cToken= response.token;
+  }})}
 
 
 
@@ -47,4 +63,4 @@ onListar() {
 
   
 
-}
+

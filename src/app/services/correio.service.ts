@@ -10,12 +10,25 @@ import { Totvsheader } from '../interfaces/totvsheader';
 })
 
 
+
 export class CorreioService {
 
-  //Dados do usuario
-  dadosUsuario = {"Email":"servico@dieboldnixdorf.com", "Senha":"prodiebold11"}
+  totvs_header:any={
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic ' + btoa("super:prodiebold11"),
+    'CompanyId': 1
+  }
+  
+   headersCorreio = new HttpHeaders(this.totvs_header);
+  
 
+  //Dados do usuario
+  
+
+  
   constructor(private http: HttpClient) { 
+      
+    
   }
 
    //---------------------- Variaveis Globais
@@ -27,29 +40,21 @@ export class CorreioService {
   }
 
 
-  public RastroObjeto(params: string) {
-      return this.http
-        .get("https://azure/diebold:7000/Rastro/"+params, {headers: this.ObterToken()})
+  public RastroObjeto(params: string, token:string) {
+  
+        return this.http
+        .get("https://localhost:7146/Rastro/"+params, {headers: new HttpHeaders({'Authorization': 'Bearer ' + token})})
         .pipe(take(1));
     }
 
 
-    public CalculoPrecoPrazo(params?: any) {
+    public CalculoPrecoPrazo(params: any, token:string) {
       return this.http
-        .post("https://localhost:7146/CalculoPrecoPrazo", params, {headers: this.ObterToken()})
+        .post("https://localhost:7146/CalculoPrecoPrazo", params, {headers: new HttpHeaders({'Authorization': 'Bearer ' + token})})
         .pipe(take(1));
     }
 
-    public ObterToken():HttpHeaders
-    {
-      this.http.post('https://localhost:7146/login', this.dadosUsuario).pipe(take(1)).subscribe({
-        next: (response: any) => {
-          let headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + response.token}); 
-          return headers
-        }
-     })
-     return new HttpHeaders
-   }
+   
+
+   
 }
